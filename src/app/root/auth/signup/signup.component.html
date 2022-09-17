@@ -1,0 +1,81 @@
+<div class="card">
+    <div class="card-header">
+        <div class="title">
+            <i class="bi bi-person-fill"></i>
+            Sign Up
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="form">
+            <div class="form-group col-12">
+                <label for="EmployeeId">Employee Id</label>
+                <input id="EmployeeId" type="text" class="form-control form-control-sm" formControlName="EmployeeId">
+                <span class="form-control-error" *ngIf="!form.get('EmployeeId')!.valid && form.get('EmployeeId')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="Employee_Name">Employee Name</label>
+                <input id="Employee_Name" type="text" class="form-control form-control-sm" formControlName="Employee_Name">
+                <span class="form-control-error" *ngIf="!form.get('Employee_Name')!.valid && form.get('Employee_Name')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="UserName">Username</label>
+                <input id="UserName" type="text" class="form-control form-control-sm" formControlName="UserName">
+                <span class="form-control-error" *ngIf="!form.get('UserName')!.valid && form.get('UserName')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="Password">Password</label>
+                <input id="Password" type="password" class="form-control form-control-sm" formControlName="Password">
+                <span class="form-control-error" *ngIf="!form.get('Password')!.valid && form.get('Password')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="PasswordConfirmation">Confirm Password</label>
+                <input id="PasswordConfirmation" type="password" class="form-control form-control-sm" formControlName="PasswordConfirmation">
+                <span class="form-control-error" *ngIf="!form.get('PasswordConfirmation')!.valid && form.get('PasswordConfirmation')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="SecurityQuestion">Security Question</label>
+                <select id="SecurityQuestion" class="form-control form-control-sm" formControlName="SecurityQuestion">
+                    <option value="In what city were you born?">In what city were you born?</option>
+                    <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+                    <option value="What high school did you attend?">What high school did you attend?</option>
+                    <option value="What was the name of your elementary school?">What was the name of your elementary school?</option>
+                    <option value="What was the make of your first car or bike?">What was the make of your first car or bike?</option>
+                    <option value="What year was your father (or mother) born?">What year was your father (or mother) born?</option>
+                </select>
+                <span class="form-control-error" *ngIf="!form.get('SecurityQuestion')!.valid && form.get('SecurityQuestion')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="Answer">Answer</label>
+                <input id="Answer" type="text" class="form-control form-control-sm" formControlName="Answer">
+                <span class="form-control-error" *ngIf="!form.get('Answer')!.valid && form.get('Answer')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group btn-container col-12">
+                <button class="btn btn-primary btn-sm" style="float: right;" (click)="onSave()">Save</button>
+                <button class="btn btn-sm" style="float: right; margin-right: 10px;" (click)="onCancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+

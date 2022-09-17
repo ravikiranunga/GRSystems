@@ -1,0 +1,25 @@
+.table-wrap
+{
+    height: 60.5vh;
+    cursor: pointer;
+    overflow-y: auto;
+}
+
+.detail-label
+{
+    color: #aaa;
+    font-size: 11px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.detail-value
+{
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,188 @@
+<div class="container-fluid">
+    <!-- Title -->
+    <div class="row">
+        <div class="col-lg-2" style="padding: 0;">
+        </div>
+
+        <div class="col-lg-8">
+            <div class="page-header">Tickets</div>
+        </div>
+
+        <div class="col-lg-2" style="padding: 0;">
+        </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="row">
+        <div class="col-lg-2" style="padding: 0;">
+        </div>
+        
+        <div class="col-lg-8" style="padding: 0;">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-title"><i class="bi bi-funnel-fill" style="margin-right: 5px;"></i>Filters</div>                    
+                </div>
+
+                <div class="disp-flex">
+                    <button class="btn btn-secondary btn-sm btn-icon-normal" (click)="clearFilters()" title="Clear all filters" style="margin-right: 10px; margin-top: auto;">
+                        <i class="bi bi-funnel"></i>
+                    </button>
+
+                    <div class="filter">
+                        <div class="filter-title">Ticket Id</div>
+                        <input type="text"  [(ngModel)]="TicketId" id="ticketId" name="ticketId"  #ticketId="ngModel" class="form-control form-control-sm">
+                    </div>
+            
+                    <div class="filter">
+                        <div class="filter-title">Title</div>
+                        <input type="text" id="title" name="title" [(ngModel)]="Title"  #title="ngModel" class="form-control form-control-sm">
+                    </div>
+                    
+                    <div class="filter">
+                        <div class="filter-title">Category</div>
+                        <select #category (change)="categoryChanged(category.value)" class="form-select form-select-sm">
+                            <option selected value="All">All</option>
+                            <option *ngFor="let category of categoryList"  value="{{category.name}}">{{category.name}}</option>
+                        </select>
+                    </div>
+            
+                    <div class="filter">
+                        <div class="filter-title">Status</div>
+                        <select #status (change)="statuschanged(status.value)" class="form-select form-select-sm">
+                            <option selected value="All">All</option>
+                            <option *ngFor="let status of statusList" value="{{status}}">{{status}}</option>
+                        </select>
+                    </div>
+            
+                    <div class="filter">
+                        <div class="filter-title">Priority</div>
+                        <select #priority (change)="prioorityChanged(priority.value)" class="form-select form-select-sm">
+                            <option selected value="All">All</option>
+                            <option *ngFor="let prority of priorityList"  value="{{prority}}">{{prority}}</option>
+                        </select>
+                    </div>
+            
+                    <div class="filter">
+                        <div class="filter-title">Date</div>
+                        <div style="border: 1px solid #ccc; border-radius: 4px; padding: 2px; width: 200px;">
+                            <app-datepicker-popup></app-datepicker-popup>
+                        </div>
+                    </div>
+
+                    <div class="filter mt-3 mx-0">
+                        <button (click)="SubmitClicked()" type="button" class="btn btn-primary py-0" >Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2" style="padding: 0;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2" style="padding: 0;">
+        </div>
+
+        <div class="col-lg-6" style="padding: 0;">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-title"><i class="bi bi-hdd-stack-fill" style="margin-right: 5px;"></i>Ticket List</div>
+                    <button class="btn btn-primary btn-sm" (click)="createTicket()" style="margin-left: auto; margin-bottom: 10px">
+                        <i class="bi bi-plus-lg" style="margin-right: 5px;"></i>
+                        New Ticket
+                    </button>                 
+                </div>
+
+                <div>
+                    <div class="table-responsive table-wrap">
+                        <table #ticketTable class="table table-borderless table-hover" data-click-to-select="true">
+                          <thead class="table-sticky">
+                            <tr>
+                              <th class="text-center">Priority</th>
+                              <th>Description</th>
+                              <th class="text-center">Category</th>
+                              <th class="text-center">Status</th>
+                              <th class="text-center">Created</th>
+                              <th class="text-center"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let ticket of filteredTickets | filter:Title | filter: TicketId" (click)="getSelectedRowData(ticket)">
+                              <td class="text-center" style="vertical-align: middle;">
+                                <div *ngIf="ticket.priority== 'High-Priority'">
+                                    <div class="snack-circle-error">
+                                        <div>H</div>
+                                    </div> 
+                                  </div>
+                                  <div *ngIf="ticket.priority== 'Medium-Priority'">
+                                    <div class="snack-circle-warn">
+                                        <div>M</div>
+                                    </div> 
+                                  </div>
+                                  <div *ngIf="ticket.priority== 'Low-Priority'">
+                                    <div class="snack-circle-success">
+                                        <div>L</div>
+                                    </div> 
+                                  </div>
+                              </td>
+                              <td>
+                                <div style="display: flex;">
+                                    <div style="color:#999999">#</div>
+                                    <div style="color: var(--color-ac-p); font-weight: bold;">{{ticket.ticketId }}</div>                        
+                                </div>
+                                <div style="font-size: 14px; font-weight: 700;">{{ticket.title}}</div>
+                                <div style="font-size: 12px; color: var(--color-fg-s);">{{ticket.description}}</div>
+                              </td>
+                              <td class="text-center" style="text-transform: uppercase; font-size:12px; vertical-align: middle;">{{ticket.department}}</td>
+                              <td class="text-center" style="text-transform: uppercase; font-size:12px; vertical-align: middle;">{{ticket.status}}</td>
+                              <td class="text-center" style="text-transform: uppercase; font-size:12px; vertical-align: middle;">{{ticket.createdOn | date:'dd-MM-yyyy'}}</td>
+
+                              
+                              <td class="text-center" style="text-transform: uppercase; font-weight:700; font-size:11px; vertical-align: middle;">
+                                <div style="display: flex;">
+                                    <button (click)="viewTicket(ticket)" class="btn btn-sm btn-circle-info" style="margin-right: 5px;"><i class="bi bi-eye-fill"></i></button>
+                                    <button (click)="editTicket(ticket)" class="btn btn-sm btn-circle-success" style="margin-right: 5px;" *ngIf="role != 'User'" ><i class="bi bi-pencil-square"></i></button>
+                                    <button (click)="deleteTicket(ticket.ticketId)" class="btn btn-sm btn-circle-error" style="margin-right: 5px;"><i class="bi bi-trash-fill"></i></button>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2" style="padding: 0;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section">
+                        <div class="section-header">
+                            <div class="section-title"><i class="bi bi-pie- -fill" style="margin-right: 5px;"></i>All Tickets - By Status</div>
+                        </div>
+                            
+                        <div>
+                            <canvas id="chart1" class="chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="section">
+                        <div class="section-header">
+                            <div class="section-title"><i class="bi bi-pie-chart-fill" style="margin-right: 5px;"></i>All Tickets - By Priority</div>                    
+                        </div>
+        
+                        <div>
+                            <canvas id="chart2" class="chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2" style="padding: 0;">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+<div class="container-fluid">
+    <!-- Title -->
+    <div class="row">
+        <div class="col-lg-2" style="padding: 0;">
+        </div>
+
+        <div class="col-lg-8">
+            <div class="page-header">Categories</div>
+        </div>
+
+        <div class="col-lg-2" style="padding: 0;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2" style="padding: 0;">
+        </div>
+
+        <div class="col-lg-6" style="padding: 0;">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-title"><i class="bi bi-hdd-stack-fill" style="margin-right: 5px;"></i>Category List</div>
+                    <button class="btn btn-primary btn-sm" (click)="createCategory()" style="margin-left: auto; margin-bottom: 10px">
+                        <i class="bi bi-plus-lg" style="margin-right: 5px;"></i>
+                        New Category
+                    </button>                 
+                </div>
+
+                <div>
+                    <!-- Table -->
+                    <div class="table-responsive table-wrap" style="margin-top: 10px;">
+                        <table #ticketTable class="table table-borderless table-hover" data-click-to-select="true">
+                          <thead class="table-sticky">
+                            <tr>
+                                <th class="text-center">Category Name</th>
+                                <th class="text-center">Created Date</th>
+                                <!-- <th class="text-center">Escalation Level 1</th>
+                                <th class="text-center">Escalation Level 2</th>
+                                <th class="text-center">Escalation Level 3</th> -->
+                                <th class="text-center">Open Tickets</th>
+                                <th class="text-center">In Progress Tickets</th>
+                                <th class="text-center">Closed Tickets</th>
+                                
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let category of categories" (click)="getSelectedRowData(category)">
+                                <td style="text-transform: uppercase; font-size:12px; vertical-align: middle;">{{category.name}}</td>
+                                <td class="text-center" style="text-transform: uppercase; font-size:12px; vertical-align: middle;">{{category.createdOn | date:'dd-MM-yyyy'}}</td>
+                                <!-- <td class="text-center" style="text-transform: uppercase; font-size:12px; vertical-align: middle;">{{category.L1_Escalation_User}}</td>
+                                <td class="text-center" style="text-transform: uppercase; font-size:12px; vertical-align: middle;">{{category.L2_Escalation_User}}</td>
+                                <td class="text-center" style="text-transform: uppercase; font-size:12px; vertical-align: middle;">{{category.L3_Escalation_User}}</td> -->
+                                <td class="text-center" style="vertical-align: middle;">
+                                    <div class="snackbar-info">
+                                        <div>{{category.totalTickets}}</div>
+                                    </div>
+                                </td>
+                                <td class="text-center" style="vertical-align: middle;">
+                                    <div class="snackbar-warn">
+                                        <div>{{category.openTickets}}</div>
+                                    </div>
+                                </td>
+                                <td class="text-center" style="vertical-align: middle;">
+                                    <div class="snackbar-success">
+                                        <div>{{category.closedTickets}}</div>
+                                    </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2" style="padding: 0;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section">
+                        <div class="section-header">
+                            <div class="section-title"><i class="bi bi-info-square-fill" style="margin-right: 5px;"></i>Category Details</div>
+                        </div>
+                            
+                        <div>
+                            <!-- Details -->
+                            <div>
+                                <label class="detail-label">Name:&nbsp;</label>
+                                <div class="detail-value">{{selectedCategory.name}}</div>
+                            </div>
+                            <div>
+                                <label class="detail-label">Created Date:&nbsp;</label>
+                                <div class="detail-value">{{selectedCategory.createdOn | date:'dd-MM-yyyy'}}</div>
+                            </div>
+                            <!-- <div>
+                                <label class="detail-label">Escalation Level 1:&nbsp;</label>
+                                <div class="detail-value">{{selectedCategory.escalation1User}}</div>
+                            </div>
+                            <div>
+                                <label class="detail-label">Escalation Level 2:&nbsp;</label>
+                                <div class="detail-value">{{selectedCategory.escalation2User}}</div>
+                            </div>
+                            <div>
+                                <label class="detail-label">Escalation Level 3:&nbsp;</label>
+                                <div class="detail-value">{{selectedCategory.escalation3User}}</div> 
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="section">
+                        <div class="section-header">
+                            <div class="section-title"><i class="bi bi-pie-chart-fill" style="margin-right: 5px;"></i>Category Tickets Count</div>                    
+                        </div>
+        
+                        <div>
+                            <!-- Chart -->
+                            <canvas id="chart1" class="chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2" style="padding: 0;">
+        </div>
+    </div>
+</div>

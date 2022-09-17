@@ -1,0 +1,75 @@
+<div class="card">
+    <div class="card-header">
+        <div class="title">
+            <i class="bi bi-key-fill"></i>
+            Reset Password
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="form">
+            <div class="form-group col-12" *ngIf="state1">
+                <label for="empid">Employee Id</label>
+                <input id="empid" type="text" class="form-control form-control-sm" formControlName="empid">
+                <span class="form-control-error" *ngIf="!form.get('empid')!.valid && form.get('empid')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12" *ngIf="state1">
+                <label for="username">Username</label>
+                <input id="username" type="text" class="form-control form-control-sm" formControlName="username">
+                <span class="form-control-error" *ngIf="!form.get('username')!.valid && form.get('username')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12" *ngIf="state3">
+                <label for="password">Password</label>
+                <input id="password" type="password" class="form-control form-control-sm" formControlName="password">
+                <span class="form-control-error" *ngIf="!form.get('password')!.valid && form.get('password')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12" *ngIf="state3">
+                <label for="passwordConfirmation">Confirm Password</label>
+                <input id="passwordConfirmation" type="password" class="form-control form-control-sm" formControlName="passwordConfirmation">
+                <span class="form-control-error" *ngIf="!form.get('passwordConfirmation')!.valid && form.get('passwordConfirmation')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12" *ngIf="state2">
+                <label for="question">Security Question</label>
+                <select id="question" class="form-control form-control-sm" formControlName="question">
+                    <option value="1">In what city were you born?</option>
+                    <option value="2">What is your mother's maiden name?</option>
+                    <option value="3">What high school did you attend?</option>
+                    <option value="4">What was the name of your elementary school?</option>
+                    <option value="5">What was the make of your first car or bike?</option>
+                    <option value="6">What year was your father (or mother) born?</option>
+                </select>
+                <span class="form-control-error" *ngIf="!form.get('question')!.valid && form.get('question')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12" *ngIf="state2">
+                <label for="answer">Answer</label>
+                <input id="answer" type="text" class="form-control form-control-sm" formControlName="answer">
+                <span class="form-control-error" *ngIf="!form.get('answer')!.valid && form.get('answer')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group btn-container col-12">
+                <button type="submit" class="btn btn-primary btn-sm" style="float: right;" (click)="onNext()" *ngIf="state1">Next</button>
+                <button class="btn btn-primary btn-sm" style="float: right;" (click)="onValidate()" *ngIf="state2">Validate</button>
+                <button class="btn btn-primary btn-sm" style="float: right;" (click)="onSave()" *ngIf="state3">Save</button>
+                <button class="btn btn-sm" style="float: right; margin-right: 10px;" (click)="onCancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+

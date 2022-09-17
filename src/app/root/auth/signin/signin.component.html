@@ -1,0 +1,28 @@
+<form  [formGroup]="form" #signinForm="ngForm" (ngSubmit)="onLogin()">
+    <div class="main-container">
+        <div class="login-container">
+            <div class="login-head">
+                <div class="title-container">
+                    <!-- <div class="title navbar-brand text-uppercase fw-bold">Login</div> -->
+                    <i class="bi bi-person-fill title-icon"></i>
+                </div>
+            </div>
+            <div class="login-body">
+                <input type="email" placeholder="USERNAME" name="UserName" id="UserName" formControlName = "UserName" >                
+                <input type="password" placeholder="PASSWORD" name="Password" id="Password" formControlName = "Password" >
+                <button class="login-btn ripple" type="submit">Login</button>
+                <div class="options">
+                    <a (click)="showSignup()">Create Account</a>
+                    <div>&nbsp;|&nbsp;</div>
+                    <a (click)="showReset()">Reset Password</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="app-logo-container">
+            <img src="../../../../assets/logo.png" alt="" class="app-logo">
+            <h1 class="app-title navbar-brand text-uppercase fw-bold">Grievance Redressal System</h1>
+            <h3 class="app-subtitle navbar-brand text-uppercase">Please login to continue</h3>
+        </div>
+    </div>
+</form>

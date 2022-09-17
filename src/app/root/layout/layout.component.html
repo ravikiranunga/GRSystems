@@ -1,0 +1,30 @@
+<nav class="navbar sticky-top navbar-expand-sm" style="background-color: var(--color-bg-s);">
+  <div class="container-fluid" style="display: flex; justify-content:space-between;">
+    <a class="navbar-brand">
+      <img src="../assets/logo.png" style="width: 5em;">
+    </a>
+
+    <div class="navbar-title" style="margin-left: -75px;">Grievance Redressal System</div>
+    <button class="navbar-toggler" type="button" data-toggle="dropdown" data-target="#navbar-list-4"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    </button>
+    <ul class="navbar-nav mx-3" >
+      <li class="nav-item dropdown" ngbDropdown >
+        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false" ngbDropdownToggle>
+          <i class="bi bi-person-circle navbar-icon"></i>
+        </a>
+        <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+          <li ngbDropdownItem><a class="dropdown-item" (click)="getUserProfile()">Profile</a></li>
+          <li ngbDropdownItem><a class="dropdown-item" (click)="Logout()">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="sidebar">
+  <app-sidebar></app-sidebar>
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

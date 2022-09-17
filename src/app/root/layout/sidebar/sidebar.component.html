@@ -1,0 +1,60 @@
+<div class="container">
+    <ul class="list">
+        <li class="list-item" routerLinkActive="active" >
+            <a routerLink="root/sadmindashboard">
+                <i class="bi bi-grid-fill"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li class="list-item" routerLinkActive="active" >
+            <a routerLink="root/tickets">
+                <i class="bi bi-ticket-detailed-fill"></i>
+                <span>Tickets</span>
+            </a>
+        </li>
+
+        <div *ngIf="role == 'Admin'" >
+            <li class="list-item" routerLinkActive="active" >
+                <a routerLink="root/categories">
+                    <i class="bi bi-tag-fill"></i>
+                    <span>Categories</span>
+                </a>
+            </li>
+        </div>
+        
+        <div *ngIf="role == 'SAdmin'">
+            <li class="list-item" routerLinkActive="active" >
+                <a routerLink="root/categories">
+                    <i class="bi bi-tag-fill"></i>
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li class="list-item" routerLinkActive="active" >
+                <a routerLink="root/users" >
+                    <i class="bi bi-person-fill"></i>
+                    <span>Users</span>
+                </a>
+            </li>
+            <li class="list-item" routerLinkActive="active">
+                <a routerLink="root/reports" >
+                    <i class="bi bi-funnel-fill"></i>
+                    <span>Reports</span>
+                </a>
+            </li>
+        </div >
+
+        <!-- <li class="list-item"  routerLinkActive="active">
+            <a routerLink="root/reports">
+                <i class="bi bi-file-spreadsheet-fill"></i>
+                <span>Reports</span>
+            </a>
+        </li> -->
+        <li class="list-item" routerLinkActive="active">
+            <a routerLink="root/help">
+                <i class="bi bi-question-circle-fill"></i>
+                <span>Help</span>
+            </a>
+        </li>
+    </ul>
+</div>

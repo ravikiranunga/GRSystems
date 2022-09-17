@@ -1,0 +1,136 @@
+.filter
+{
+    margin-right: 10px;
+
+    .filter-title
+    {
+        font-size: 10px;
+        font-weight: 500;
+        margin-left: 5px;
+        color: var(--color-fg-s);
+        text-transform: uppercase;
+    }
+}
+
+.table-wrap
+{
+    height: 72vh;
+    overflow-y: auto;
+}
+
+.detail-label
+{
+    color: #aaa;
+    font-size: 11px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.detail-value
+{
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+ul.timeline
+{
+    overflow: auto;
+    position: relative;
+    max-height: 500px;
+    margin-left: -40px;
+    list-style-type: none;
+}
+
+ul.timeline:before
+{
+    content: ' ';
+    width: 2px;
+    left: 29px;
+    height: 100%;
+    z-index: 400;
+    position: absolute;
+    display: inline-block;
+    background: var(--color-si-s);
+}
+
+ul.timeline > li
+{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+ul.timeline > li:before
+{
+    content: ' ';
+    left: 22px;
+    width: 15px;
+    height: 15px;
+    z-index: 400;
+    margin-top: 2px;
+    border-radius: 50%;
+    position: absolute;
+    display: inline-block;
+    background: var(--color-bg-s);
+    border: 2px solid var(--color-si-p);
+}
+
+.timeline-date
+{
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-fg-s);
+}
+
+.timeline-data
+{
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-fg-p);
+}
+
+.btn-circle-error
+{
+    border: 0;
+    border-radius: 50%;
+    color: var(--color-se-p);
+    background-color: var(--color-se-s);
+
+    &:hover
+    {
+        color: var(--color-bg-s);
+        background-color: var(--color-se-p);
+    }
+}
+
+.btn-circle-info
+{
+    border: 0;
+    border-radius: 50%;
+    color: var(--color-si-p);
+    background-color: var(--color-si-s);
+
+    &:hover
+    {
+        color: var(--color-bg-s);
+        background-color: var(--color-si-p);
+    }
+}
+
+.btn-circle-success
+{
+    border: 0;
+    border-radius: 50%;
+    color: var(--color-ss-p);
+    background-color: var(--color-ss-s);
+
+    &:hover
+    {
+        color: var(--color-bg-s);
+        background-color: var(--color-ss-p);
+    }
+}

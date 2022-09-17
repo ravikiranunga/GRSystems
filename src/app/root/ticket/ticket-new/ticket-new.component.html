@@ -1,0 +1,60 @@
+<div class="card">
+    <div class="card-header">
+        <div class="title">
+            <i class="bi bi-ticket-detailed-fill"></i>
+            Create New Ticket
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="form" enctype="multipart/form-data" method="post">
+            <div class="form-group col-12">
+                <label for="Department">Category</label>
+                <select id="Department" class="form-control form-control-sm" formControlName="Department">
+                    <option value="0">--select--</option>
+                    <option *ngFor="let category of categoryList">{{category.name}}</option>
+                </select>
+                <span class="form-control-error" *ngIf="!form.get('Department')!.valid && form.get('Department')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="title">Title</label>
+                <input id="title" type="text" class="form-control form-control-sm" formControlName="title">
+                <span class="form-control-error" *ngIf="!form.get('title')!.valid && form.get('title')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="priority">Priority</label>
+                <select id="priority" name="priority" class="form-control form-control-sm" formControlName="priority">                    
+                    <option Value="null" selected [disabled]>--select--</option>
+                    <option *ngFor="let priority of priorityList">{{priority}}</option>
+                </select>
+                <span class="form-control-error" *ngIf="!form.get('priority')!.valid && form.get('priority')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="Description">Description</label>
+                <textarea id="Description" rows="4" class="form-control form-control-sm" formControlName="Description"></textarea>
+                <span class="form-control-error" *ngIf="!form.get('Description')!.valid && form.get('Description')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <!-- <div class="form-group col-12">
+                <label for="docs">Upload Files</label>
+                <input id="docs" type="file" class="form-control form-control-sm" (change)="onFileChange($event)" formControlName="docs">
+            </div> -->
+
+            <div class="form-group btn-container col-12">
+                <button type="submit" class="btn btn-primary btn-sm" style="float: right;" (click)="onSave()">Save</button>
+                <button class="btn btn-sm" style="float: right; margin-right: 10px;" (click)="onCancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+

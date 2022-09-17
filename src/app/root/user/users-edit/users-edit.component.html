@@ -1,0 +1,74 @@
+<div class="card">
+    <div class="card-header">
+        <div class="title">
+            <i class="bi bi-person-fill"></i>
+            Edit User
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="form">
+            <div class="form-group col-12">
+                <label for="category">Category</label>
+                <input id="category" type="text" class="form-control form-control-sm" formControlName="category">
+                <span class="form-control-error" *ngIf="!form.get('category')!.valid && form.get('category')!.touched">
+                    This value is required
+                </span>
+                <!-- <select id="category" class="form-control form-control-sm" formControlName="category">
+                    <option value="1">Associate</option>
+                    <option value="2">Agent</option>
+                    <option value="3">Administrator</option>
+                </select>
+                <span class="form-control-error" *ngIf="!form.get('category')!.valid && form.get('category')!.touched">
+                    This value is required
+                </span> -->
+            </div>
+
+            <div class="form-group col-12">
+                <label for="empid">Employee Id</label>
+                <input id="empid" type="text" class="form-control form-control-sm" formControlName="empid">
+                <span class="form-control-error" *ngIf="!form.get('empid')!.valid && form.get('empid')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="name">Employee Name</label>
+                <input id="name" type="text" class="form-control form-control-sm" formControlName="name">
+                <span class="form-control-error" *ngIf="!form.get('name')!.valid && form.get('name')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="email">Employee Email</label>
+                <input id="email" type="text" class="form-control form-control-sm" formControlName="email">
+                <span class="form-control-error" *ngIf="!form.get('email')!.valid && form.get('email')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="username">Username</label>
+                <input id="username" type="text" class="form-control form-control-sm" formControlName="username">
+                <span class="form-control-error" *ngIf="!form.get('username')!.valid && form.get('username')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="password">Password</label>
+                <input id="password" type="password" class="form-control form-control-sm" formControlName="password">
+                <span class="form-control-error" *ngIf="!form.get('password')!.valid && form.get('password')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group btn-container col-12">
+                <button class="btn btn-primary btn-sm" style="float: right;" (click)="onSave()">Save</button>
+                <button class="btn btn-sm" style="float: right; margin-right: 10px;" (click)="onCancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+

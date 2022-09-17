@@ -1,0 +1,88 @@
+<div class="card">
+    <div class="card-header">
+        <div class="name">
+            <i class="bi bi-tag-fill"></i>
+            Create New Category
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="form">
+            <div class="form-group col-12">
+                <label for="name">Name</label>
+                <input id="name" type="text" class="form-control form-control-sm" formControlName="name">
+                <span class="form-control-error" *ngIf="!form.get('name')!.valid && form.get('name')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="Description">Description</label>
+                <textarea id="Description" rows="2" class="form-control form-control-sm" formControlName="Description"></textarea>
+                <span class="form-control-error" *ngIf="!form.get('Description')!.valid && form.get('Description')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-lg-8">
+                    <label for="L1_Escalation_User">L1 Escalation User</label>
+                    <input id="L1_Escalation_User" rows="4" class="form-control form-control-sm" formControlName="L1_Escalation_User">
+                    <span class="form-control-error" *ngIf="!form.get('L1_Escalation_User')!.valid && form.get('L1_Escalation_User')!.touched">
+                        This value is required
+                    </span>
+                </div>
+
+                <div class="form-group col-lg-4">
+                    <label for="L1_Duration_In_Hours">Duration (In Hours)</label>
+                    <input id="L1_Duration_In_Hours" rows="4" class="form-control form-control-sm" formControlName="L1_Duration_In_Hours">
+                    <span class="form-control-error" *ngIf="!form.get('L1_Duration_In_Hours')!.valid && form.get('L1_Duration_In_Hours')!.touched">
+                        This value is required
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-lg-8">
+                    <label for="L2_Escalation_User">L2 Escalation User</label>
+                    <input id="L2_Escalation_User" rows="4" class="form-control form-control-sm" formControlName="L2_Escalation_User">
+                    <span class="form-control-error" *ngIf="!form.get('L2_Escalation_User')!.valid && form.get('L2_Escalation_User')!.touched">
+                        This value is required
+                    </span>
+                </div>
+
+                <div class="form-group col-lg-4">
+                    <label for="L2_Duration_In_Hours">Duration (In Hours)</label>
+                    <input id="L2_Duration_In_Hours" rows="4" class="form-control form-control-sm" formControlName="L2_Duration_In_Hours">
+                    <span class="form-control-error" *ngIf="!form.get('L2_Duration_In_Hours')!.valid && form.get('L2_Duration_In_Hours')!.touched">
+                        This value is required
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-lg-8">
+                    <label for="L3_Escalation_User">L3 Escalation User</label>
+                    <input id="L3_Escalation_User" rows="4" class="form-control form-control-sm" formControlName="L3_Escalation_User">
+                    <span class="form-control-error" *ngIf="!form.get('L3_Escalation_User')!.valid && form.get('L3_Escalation_User')!.touched">
+                        This value is required
+                    </span>
+                </div>
+
+                <div class="form-group col-lg-4">
+                    <label for="L3_Duration_In_Hours">Duration (In Hours)</label>
+                    <input id="L3_Duration_In_Hours" rows="4" class="form-control form-control-sm" formControlName="L3_Duration_In_Hours">
+                    <span class="form-control-error" *ngIf="!form.get('L3_Duration_In_Hours')!.valid && form.get('L3_Duration_In_Hours')!.touched">
+                        This value is required
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group btn-container col-12">
+                <button class="btn btn-primary btn-sm" style="float: right;" (click)="onSave()">Save</button>
+                <button class="btn btn-sm" style="float: right; margin-right: 10px;" (click)="onCancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+

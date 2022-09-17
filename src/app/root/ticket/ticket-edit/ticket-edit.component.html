@@ -1,0 +1,84 @@
+<div class="card">
+    <div class="card-header">
+        <div class="title">
+            <i class="bi bi-pencil-square"></i>
+            Edit Ticket
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="form">
+            <div class="form-group col-12">
+                <label for="category">Category</label>
+                <input type="text" id="category" rows="4" class="form-control form-control-sm" formControlName="category">
+                <span class="form-control-error" *ngIf="!form.get('category')!.valid && form.get('category')!.touched">
+                    This value is required
+                </span>
+
+                <!-- <label for="category">Category</label>
+                <select id="category" class="form-control form-control-sm" formControlName="category">
+                    <option *ngFor="let category of categoryList">{{category.name}}</option>
+                </select>
+                <span class="form-control-error" *ngIf="!form.get('category')!.valid && form.get('category')!.touched">
+                    This value is required
+                </span> -->
+            </div>
+
+            <div class="form-group col-12">
+                <label for="title">Title</label>
+                <input id="title" type="text" class="form-control form-control-sm" formControlName="title">
+                <span class="form-control-error" *ngIf="!form.get('title')!.valid && form.get('title')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="priority">Priority</label>
+                <input type="text" id="priority" rows="4" class="form-control form-control-sm" formControlName="priority">
+                <span class="form-control-error" *ngIf="!form.get('priority')!.valid && form.get('priority')!.touched">
+                    This value is required
+                </span>
+
+                <!-- <label for="priority">Priority</label>
+                <select id="priority" class="form-control form-control-sm" formControlName="priority">
+                    <option *ngFor="let priority of priorityList">{{priority}}</option>
+                </select>
+                <span class="form-control-error" *ngIf="!form.get('priority')!.valid && form.get('priority')!.touched">
+                    This value is required
+                </span> -->
+            </div>
+
+            <div class="form-group col-12">
+                <label for="desc">Description</label>
+                <textarea id="desc" rows="4" class="form-control form-control-sm" formControlName="desc"></textarea>
+                <span class="form-control-error" *ngIf="!form.get('desc')!.valid && form.get('desc')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="comment">Comment</label>
+                <input id="comment" type="text" class="form-control form-control-sm" formControlName="comment">
+                <span class="form-control-error" *ngIf="!form.get('comment')!.valid && form.get('comment')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="status">Status</label>
+                <select id="status" class="form-control form-control-sm" formControlName="status">
+                    <option *ngFor="let status of statusList">{{status}}</option>
+                </select>
+                <span class="form-control-error" *ngIf="!form.get('status')!.valid && form.get('status')!.touched">
+                    This value is required
+                </span>
+            </div>
+
+            <div class=" btn-container col-12">
+                <button class="form-group btn btn-primary btn-sm" style="float: right;" (click)="onSave()">Save</button>
+                <button class="btn btn-sm" style="float: right; margin-right: 10px;" (click)="onCancel()" >Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+

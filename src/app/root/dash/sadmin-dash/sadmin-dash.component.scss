@@ -1,0 +1,56 @@
+.table-wrap
+{
+    height: 83vh;
+    overflow-y: auto;
+}
+
+.count-card
+{
+    width: 200px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #ddd;
+}
+
+.count-card-info
+{
+    width: 200px;
+    padding: 10px;
+    border-radius: 4px;
+    color: var(--color-si-p);
+    background-color: var(--color-si-s);
+}
+
+.count-card-warn
+{
+    width: 200px;
+    padding: 10px;
+    border-radius: 4px;
+    color: var(--color-sw-p);
+    background-color: var(--color-sw-s);
+}
+
+.count-card-success
+{
+    width: 200px;
+    padding: 10px;
+    border-radius: 4px;
+    color: var(--color-ss-p);
+    background-color: var(--color-ss-s);
+}
+
+.count-title
+{
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.count-value
+{
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 6px;
+}

@@ -1,0 +1,16 @@
+<ng-template #content let-modal >
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Choose the Date</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <app-date-picker (dateTimeChanged)=dateTimeEvent($event)></app-date-picker>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Select</button>
+    </div>
+</ng-template>
+
+<i class="bi bi-calendar3" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="open(content)" ></i>
+
+

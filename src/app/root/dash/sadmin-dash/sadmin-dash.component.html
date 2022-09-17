@@ -1,0 +1,154 @@
+<div class="container" style="margin-left: 100px;">
+
+  <!-- Title -->
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="page-header">Dashboard</div>
+      </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-6" style="padding: 0;">
+      <div class="row">
+        <!-- Ticket Stats -->
+        <div class="col-lg-12" style="padding-right: 10px;">
+          <div class="section">
+              <!-- section header -->
+              <div class="section-header">
+                  <div class="section-title"><i class="bi bi-hdd-stack-fill" style="margin-right: 5px;"></i>Overall Ticket Count</div>
+              </div>
+              
+              <!-- section body -->
+              <div>
+                <div style="display: flex;">
+                  <div class="count-card" style="margin-right: 15px;">
+                    <div class="count-title">Total Tickets</div>
+                    <div class="count-value">{{totalTicketsCount}}</div>
+                  </div>
+
+                  <div class="count-card-info" style="margin-right: 15px;">
+                    <div class="count-title">Open Tickets</div>
+                    <div class="count-value">{{openTicketsCount}}</div>
+                  </div>
+
+                  <div class="count-card-warn" style="margin-right: 15px;">
+                    <div class="count-title">Pending Tickets</div>
+                    <div class="count-value">{{pendingTicketCount}}</div>
+                  </div>
+
+                  <div class="count-card-success">
+                    <div class="count-title">Closed Tickets</div>
+                    <div class="count-value">{{closedTicketsCount}}</div>
+                  </div>
+                </div>                
+              </div>
+          </div>
+        </div>
+
+        <!-- -->
+        <div class="col-lg-6" style="padding-right: 0;">
+          <div class="section">
+              <!-- section header -->
+              <div class="section-header">
+                  <div class="section-title"><i class="bi bi-pie-chart-fill" style="margin-right: 5px;"></i>Tickets By Status</div>
+                  <app-datepicker-popup style="margin-left: auto;"></app-datepicker-popup>
+              </div>
+              <!-- section body -->
+              <div>
+                <canvas id="chart1" class="chart"></canvas>
+              </div>
+          </div>
+        </div>
+
+        <!-- -->
+        <div class="col-lg-6" style="padding-left: 0px; padding-right: 10px;">
+          <div class="section">
+              <!-- section header -->
+              <div class="section-header">
+                  <div class="section-title"><i class="bi bi-pie-chart-fill" style="margin-right: 5px;"></i>Tickets By Priority</div>
+                  <app-datepicker-popup style="margin-left: auto;"></app-datepicker-popup>
+              </div>
+              <!-- section body -->
+              <div>
+                <canvas id="chart2" class="chart"></canvas>
+              </div>
+          </div>
+        </div>
+
+        <!-- -->
+        <div class="col-lg-12" style="padding-right: 10px;">
+          <div class="section">
+              <!-- section header -->
+              <div class="section-header">
+                  <div class="section-title"><i class="bi bi-bar-chart-fill" style="margin-right: 5px;"></i>Tickets By Category</div>
+                  <app-datepicker-popup style="margin-left: auto;"></app-datepicker-popup>
+              </div>
+              <!-- section body -->
+              <div>
+                <canvas id="chart3" class="chart" height="295px"></canvas>
+              </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Recent Tickets -->
+    <div class="col-lg-4" style="padding: 0;">
+        <div class="section">
+            <!-- section header -->
+            <div class="section-header">
+                <div class="section-title"><i class="bi bi-hdd-stack-fill" style="margin-right: 5px;"></i>Recent Tickets</div>
+            </div>
+            <!-- section body -->
+            <div>
+              <div class="table-responsive table-wrap">
+                <table #ticketTable class="table table-borderless table-hover" data-click-to-select="true">
+                  <thead class="table-sticky">
+                    <tr>
+                      <th class="text-center">Priority</th>
+                      <th>Description</th>
+                      <th>Status</th>
+                      <!-- <th>Date</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let ticket of ticketsList">
+                      <td class="text-center" style="vertical-align: middle;">
+                        <div *ngIf="ticket.priority== 'High-Priority'">
+                          <div class="snack-circle-error">
+                              <div>H</div>
+                          </div> 
+                        </div>
+                        <div *ngIf="ticket.priority== 'Medium-Priority'">
+                          <div class="snack-circle-warn">
+                              <div>M</div>
+                          </div> 
+                        </div>
+                        <div *ngIf="ticket.priority== 'Low-Priority'">
+                          <div class="snack-circle-success">
+                              <div>L</div>
+                          </div> 
+                        </div>
+                      </td>
+                      <td>
+                        <div style="display: flex;">
+                            <div style="color:#999999">#</div>
+                            <div style="color: var(--color-ac-p); font-weight: bold;">{{ticket.ticketId}}</div>                        
+                        </div>
+                        <div style="font-size: 14px; font-weight: 700;">{{ticket.description}}</div>
+                        <!-- <div style="font-size: 12px; color: var(--color-fg-s);">{{ticket.desc}}</div> -->
+                      </td>
+                      <td class="text-center" style="text-transform: uppercase; font-size:12px; vertical-align: middle;">{{ticket.status}}</td>
+                      <!-- <td class="text-center" style="text-transform: uppercase; font-size:12px; vertical-align: middle;">{{ticket.createdDate}}</td> -->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+</div>

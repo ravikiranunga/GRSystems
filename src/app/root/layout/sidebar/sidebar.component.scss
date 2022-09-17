@@ -1,0 +1,49 @@
+.container
+{
+    .list
+    {
+        padding: 0;
+        margin-top: 50px;
+        list-style: none;
+
+        li
+        {
+            padding: 5px 5px;
+            margin-top: 10px;
+            border-radius: 5px;
+
+            a
+            {
+                display: flex;
+                font-weight: 500;
+                text-decoration: none;
+                color: var(--color-fg-p);
+                text-transform: uppercase;
+
+                span
+                {
+                    margin-left: 10px;
+                }                
+            }
+        }
+
+        li:hover
+        {
+            a 
+            {
+                color: black;                    
+                font-weight: 600;
+            }
+        }
+
+        .active
+        {
+            background-color: var(--color-ac-p);
+            a 
+            {
+                color: var(--color-bg-s);                    
+                font-weight: 600;
+            }
+        }
+    }
+}

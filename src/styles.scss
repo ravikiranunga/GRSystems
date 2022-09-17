@@ -1,0 +1,263 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+@import '~ngx-toastr/toastr';
+html,body
+{
+    height: 100%;
+    font-family: Poppins;
+}
+
+.ng-invalid.ng-touched
+{
+    border-color: var(--color-se-p);
+}
+
+.form-control-error
+{
+    font-size: 13px;
+    color: var(--color-se-p);
+}
+
+.page-header
+{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-fg-p);
+    background-color: var(--color-bg-p);
+}
+
+.section
+{
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-bg-t);
+    background-color: var(--color-bg-s);
+}
+
+.section-header
+{
+    display: flex;
+}
+
+.section-title
+{
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--color-fg-s);
+    text-transform: uppercase;
+}
+
+.disp-flex
+{
+    display: flex;
+}
+
+.btn-circle-error
+{
+    border: 0;
+    border-radius: 50%;
+    color: var(--color-se-p);
+    background-color: var(--color-se-s);
+
+    &:hover
+    {
+        color: var(--color-bg-s);
+        background-color: var(--color-se-p);
+    }
+}
+
+.btn-circle-success
+{
+    border: 0;
+    border-radius: 50%;
+    color: var(--color-ss-p);
+    background-color: var(--color-ss-s);
+
+    &:hover
+    {
+        color: var(--color-bg-s);
+        background-color: var(--color-ss-p);
+    }
+}
+
+.btn-circle-info
+{
+    border: 0;
+    border-radius: 50%;
+    color: var(--color-si-p);
+    background-color: var(--color-si-s);
+
+    &:hover
+    {
+        color: var(--color-bg-s);
+        background-color: var(--color-si-p);
+    }
+}
+
+.btn-icon-normal
+{
+    color: var(--color-fg-s);
+    border: 1px solid var(--color-fg-s);
+    background-color: var(--color-bg-s);
+}
+
+.btn-icon-info
+{
+    color: var(--color-si-p);
+    border: 1px solid var(--color-si-p);
+    background-color: var(--color-bg-s);
+}
+
+.btn-icon-error
+{
+    color: var(--color-se-p);
+    border: 1px solid var(--color-se-p);
+    background-color: var(--color-bg-s);
+}
+
+.table-sticky
+{
+    top: 0 ;
+    position:sticky;
+    background-color: var(--color-bg-s);;
+}
+
+th
+{
+    font-size: 10px;
+    color: var(--color-fg-p);
+    text-transform: uppercase;
+}
+
+tr
+{
+    border-radius: 10px;
+    background-color: var(--color-bg-s);
+    border-bottom: 1px solid var(--color-bg-t);
+}
+
+.snack-circle-error
+{
+    width: 35px;
+    height: 35px;
+    padding-top: 5px;
+    font-weight: 700;
+    margin-left: 10px;
+    border-radius: 50%;
+    color: var(--color-se-p);
+    background-color: var(--color-se-s);
+}
+
+.snack-circle-warn
+{
+    width: 35px;
+    height: 35px;
+    padding-top: 5px;
+    font-weight: 700;
+    margin-left: 10px;
+    border-radius: 50%;
+    color: var(--color-sw-p);
+    background-color: var(--color-sw-s);
+}
+
+.snack-circle-success
+{
+    width: 35px;
+    height: 35px;
+    padding-top: 5px;
+    font-weight: 700;
+    margin-left: 10px;
+    border-radius: 50%;
+    color: var(--color-ss-p);
+    background-color: var(--color-ss-s);
+}
+
+.snackbar-info
+{
+    width: 50%;
+    margin-left: 25px;
+    font-weight: 700;
+    border-radius: 5px;
+    color: var(--color-si-p);
+    background-color: var(--color-si-s);
+}
+
+.snackbar-warn
+{
+    width: 50%;
+    margin-left: 25px;
+    font-weight: 700;
+    border-radius: 5px;
+    color: var(--color-sw-p);
+    background-color: var(--color-sw-s);
+}
+
+.snackbar-error
+{
+    width: 50%;
+    margin-left: 25px;
+    font-weight: 700;
+    border-radius: 5px;
+    color: var(--color-se-p);
+    background-color: var(--color-se-s);
+}
+
+.snackbar-success
+{
+    width: 50%;
+    margin-left: 25px;
+    font-weight: 700;
+    border-radius: 5px;
+    color: var(--color-ss-p);
+    background-color: var(--color-ss-s);
+}
+
+::-webkit-scrollbar
+{
+    width: 4px;
+    overflow-y: scroll;
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background: #aaaaaa;
+    border-radius: 10px;
+}
+
+:root
+{
+    --color-bg-p: #f0f0f0;
+    --color-bg-s: #ffffff;
+    --color-bg-t: #dddddd;
+
+    --color-fg-p: #666666;
+    --color-fg-s: #999999;
+
+    --color-ac-p: #0d6efd;
+    --color-ac-s: #bcd7ff;
+
+    --color-ss-p: #198754;
+    --color-ss-s: #c6fce3;
+
+    --color-sw-p: #ffc107;
+    --color-sw-s: #faf0d2;
+
+    --color-si-p: #0d6efd;
+    --color-si-s: #d1e1fa;
+
+    --color-se-p: #dc3545;
+    --color-se-s: #fccfd4;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
